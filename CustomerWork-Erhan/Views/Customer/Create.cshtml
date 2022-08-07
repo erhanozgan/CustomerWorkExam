@@ -1,0 +1,61 @@
+﻿@model CustomerWork_Erhan.Models.Customer.Customer
+
+<div class="row">
+    <div class="col-xxl-12">
+        <div class="card card-xxl-stretch mb-5 mb-xl-8">
+            <div class="card-header border-0 pt-5">
+                <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover">
+                    <span class="card-label fw-bolder fs-4 mb-2">Yeni Müşteri Kartı</span>
+                </div>
+            </div>
+            <div class="card-body py-3">
+                <form asp-action="Create">
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <div class="mb-5">
+                                <label asp-for="CustomerCode" class="form-label"></label> @*Nesneye bağlı bir label oluşturacaksak class a form-label attr. atıyoruz*@
+                                <input asp-for="CustomerCode" class="form-control" />@*dışarıdan gelen bir veriye bağlı nesne oluşturacaksak class a form-control attr. atıyoruz*@
+                                <span asp-validation-for="CustomerCode" class="text-danger"></span>@*nesnenin altına oluşturduğumuz text alanı sadece o nesneye atanan errorValidation.Message verisini getirir.*@
+                            </div>
+                            <div class="mb-5">
+                                <label asp-for="CustomerDescription" class="form-label"></label>
+                                <input asp-for="CustomerDescription" class="form-control" />
+                                <span asp-validation-for="CustomerDescription" class="text-danger"></span>
+                            </div>
+                            <div class="mb-5">
+                                <label asp-for="CustomerTypeId" class="form-label"></label>
+                                <select asp-for="CustomerTypeId" class="form-control" asp-items="ViewBag.CustomerType">
+                                    <option value="">Seçiniz</option>
+                                </select>
+                            </div>
+                            <div class="mb-5">
+                                <label asp-for="CountryId" class="form-label"></label>
+                                <select asp-for="CountryId" class="form-control" asp-items="ViewBag.Country">
+                                    <option value="">Seçiniz</option>
+                                </select>
+                            </div>
+                            </div>
+                            <div class="mb-5">
+                                <label asp-for="CityId" class="form-label"></label>
+                                <select asp-for="CityId" class="form-control" asp-items="ViewBag.City">
+                                    <option value="">Seçiniz</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-5">
+                                <label asp-for="Address" class="form-label"></label>
+                                <input asp-for="Address" class="form-control" />
+                                <span asp-validation-for="Address" class="text-danger"></span>
+                            </div>
+
+
+
+                        </div>
+                        <a class="btn btn-secondary mr-2" asp-action="Index"><i class="fa fa-arrow-left"></i> Listeye Geri Dön</a>
+                        <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

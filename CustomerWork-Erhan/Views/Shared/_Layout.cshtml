@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:type" content="article" />
+    <link rel="shortcut icon" href="/Metronic/assets/media/logos/favicon.ico" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    <link href="/Metronic/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="/Metronic/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="/Metronic/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="/lib/fancybox/fancybox.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body>
+        <div class="container">
+            <header class="d-flex justify-content-center py-3">
+              
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a href="/Home" class="nav-link active" aria-current="page">Home</a></li>
+                    <li class="nav-item"><a href="/CustomerType" class="nav-link">Customer Type</a></li>
+                    <li class="nav-item"><a href="/Country" class="nav-link">Country</a></li>
+                    <li class="nav-item"><a href="/city" class="nav-link">City</a></li>
+                    <li class="nav-item"><a href="/Customer" class="nav-link">Customer</a></li>
+
+                </ul>
+            </header>
+        </div>
+   
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+    </footer>
+    <script src="/Metronic/assets/plugins/global/plugins.bundle.js"></script>
+    <script src="/Metronic/assets/js/scripts.bundle.js"></script>
+    <script src="/Metronic/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+    <!--end::Page Vendors Javascript-->
+    <!--begin::Page Custom Javascript(used by this page)-->
+    <script src="/Metronic/assets/js/custom/widgets.js"></script>
+    <script src="/Metronic/assets/js/custom/apps/chat/chat.js"></script>
+    <script src="/Metronic/assets/js/custom/modals/create-app.js"></script>
+    <script src="/Metronic/assets/js/custom/modals/upgrade-plan.js"></script>
+    <script src="/Metronic/assets/plugins/custom/datatables/datatables.bundle.js"></script>
+    <script src="/js/jquery.blockUI.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/lib/fancybox/fancybox.umd.js"></script>
+    <script src="/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

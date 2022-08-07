@@ -1,0 +1,51 @@
+﻿@model CustomerWork_Erhan.Models.Login.Login
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Giriş Ekranı</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <link href="~/Metronic/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="~/Metronic/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body id="kt_body" class="bg_body">
+    <div class="d-flex flex-column flex-root">
+        <div class="d-flex flex-column position-x-center bgi-size-contain">
+            <div class="d-flex flex-column flex-center p-10 pb-lg-20">
+                <a href="#" class="mb-10">
+                    <img src="~/Logo.png" alt="Projemizin logosu" height="150" width="200" />
+                </a>
+                <div class="w-lg-500px bg-body rounded shadow-sm p-5 p-lg-5 mx-auto">
+                    <form method="post" asp-action="index" novalidate="novalidate" class="form w-100">
+                        <div class="mb-10">
+                            <div class="fv-row mb-10">
+                                <label class="form-label fs-6 fw-bolder mb-0" asp-for="UserName"></label>
+                            </div>
+                            <input type="text" asp-for="UserName" autocomplete="off" class="form-control form-control-lg form-control-solid" />
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-10">
+                            <div class="fv-row mb-10">
+                                <label>Şifre</label>
+                            </div>
+                            <input type="password" asp-for="UserPassword" name="UserPassword" class="form-control form-control-lg form-control-solid" />
+                            <span asp-validation-for="UserPassword" class="text-danger"></span>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-primary btn-lg w-100 mb-5" type="submit">
+                                <span class="indicator-label">Giriş</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
