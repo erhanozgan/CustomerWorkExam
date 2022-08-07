@@ -1,4 +1,25 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿// Sayfa yüklendiğinde
+$(document).ready(function () {
+//$(function () {
+    $('#Country').change(function () {
+        $.ajax({
+            type: 'GET',
+            url: '/Customer/CityGet',
+            dataType: 'json',
+            data: { countryId: $("#Country").val() },
+            success: function (result) {
+                $("#City").html('');
+                $("#City").append('<option value="' + -1 + '">' + "Seçiniz" + '</option>');
 
-// Write your JavaScript code.
+                $.each(result, function (i, item) {
+                    $("#City").append('<option value="' + item.id + '">' + item.description + '</option>');
+                });
+            },
+            error: function (ex) {
+                alert('hata' + ex);
+            }
+        });
+    });
+
+
+});

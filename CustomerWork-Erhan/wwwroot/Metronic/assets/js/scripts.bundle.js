@@ -1,5 +1,22 @@
 "use strict";
 
+
+//Benim Yazdıklarım
+
+
+SuccessPopup = function () {
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Kaydetme Başarılı',
+        showConfirmButton: false,
+        timer: 1500
+    })
+};
+
+
+
+
 // Class definition
 var KTBlockUI = function(element, options) {
     //////////////////////////////

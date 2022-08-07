@@ -1,5 +1,4 @@
 ﻿@model City
-
 @{
     ViewData["Title"] = "Yeni Şehir";
 }
@@ -12,7 +11,7 @@
                 </h3>
             </div>
             <div class="card-body">
-                <form asp-action="Create">
+                <form asp-action="Create" onsubmit="return SubmitForm(this);">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="mb-12">
                         <label asp-for="Description" class="form-label"></label>
@@ -32,5 +31,14 @@
     </div>
 </div>
 
-
-
+@section Scripts {
+    <script>
+        function SubmitForm(form) {
+            Swal.fire(
+              'Good job!',
+              'You clicked the button!',
+              'success'
+            )
+        }
+    </script>
+}

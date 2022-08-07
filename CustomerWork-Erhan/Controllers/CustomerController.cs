@@ -30,17 +30,9 @@ namespace CustomerWork_Erhan.Controllers
 
         public async Task<IActionResult> Create()
         {
-            ViewData["CustomerType"] =
-            new SelectList(await _context.CustomerType.ToListAsync(), "Id", "Description");
-            
-
-            ViewData["Country"] =
-            new SelectList(await _context.Country.ToListAsync(), "Id", "Description");
-
-
-            ViewData["City"] =
-            new SelectList(await _context.City.ToListAsync(), "Id", "Description");
-
+            ViewBag.CustomerType = new SelectList(await _context.CustomerType.ToListAsync(), "Id", "Description");
+            ViewBag.Country = new SelectList(await _context.Country.ToListAsync(), "Id", "Description");
+            ViewBag.City = new SelectList(await _context.City.ToListAsync(), "Id", "Description");
 
             return View();
         }
@@ -51,7 +43,6 @@ namespace CustomerWork_Erhan.Controllers
         {
             if (ModelState.IsValid)
             {
-
 
                 //model.Description = model.Description.Trim();
                 _context.Add(model);
@@ -87,6 +78,7 @@ namespace CustomerWork_Erhan.Controllers
             }
             return View(data);
         }
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirm(int? Id)
@@ -96,13 +88,17 @@ namespace CustomerWork_Erhan.Controllers
             if (data is null)
                 return RedirectToAction(nameof(Index));
 
-
-
             _context.Remove(data);
             var result = _context.SaveChanges();
             return RedirectToAction("Index");
         }
 
 
+        public JsonResult CityGet(int countryId)
+        {
+            var cities = _context.City.Where(t => t.CountryId == countryId).ToList();
+
+            return Json(cities);
+        }
     }
 }

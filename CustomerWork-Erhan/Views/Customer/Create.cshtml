@@ -31,31 +31,35 @@
                             </div>
                             <div class="mb-5">
                                 <label asp-for="CountryId" class="form-label"></label>
-                                <select asp-for="CountryId" class="form-control" asp-items="ViewBag.Country">
+                                <select id="Country" asp-for="CountryId" class="form-control" asp-items="ViewBag.Country">
                                     <option value="">Seçiniz</option>
                                 </select>
                             </div>
-                            </div>
-                            <div class="mb-5">
-                                <label asp-for="CityId" class="form-label"></label>
-                                <select asp-for="CityId" class="form-control" asp-items="ViewBag.City">
-                                    <option value="">Seçiniz</option>
-                                </select>
-                            </div>
-
-                            <div class="mb-5">
-                                <label asp-for="Address" class="form-label"></label>
-                                <input asp-for="Address" class="form-control" />
-                                <span asp-validation-for="Address" class="text-danger"></span>
-                            </div>
-
-
 
                         </div>
-                        <a class="btn btn-secondary mr-2" asp-action="Index"><i class="fa fa-arrow-left"></i> Listeye Geri Dön</a>
-                        <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Kaydet</button>
+                        <div class="mb-5">
+                            <label asp-for="CityId" class="form-label"></label>
+                            <select id="City" name="CityId" class="form-control">
+                            </select>
+                        </div>
+
+
+                        <div class="mb-5">
+                            <label asp-for="Address" class="form-label"></label>
+                            <input asp-for="Address" class="form-control" />
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <a class="btn btn-secondary mr-2" asp-action="Index"><i class="fa fa-arrow-left"></i> Listeye Geri Dön</a>
+                    <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Kaydet</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+@section Scripts{
+    <script src="~/js/site.js"></script>
+}
+
+
